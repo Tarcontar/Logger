@@ -24,7 +24,7 @@ public:
 	Logger& operator<<(const int i);
 	Logger& operator<<(const unsigned int i);
 	Logger& operator<<(const long l);
-	Logger& operator<<(const long unsigned int l);
+	Logger& operator<<(const unsigned long lu);
 	Logger& operator<<(const float f);
 	Logger& operator<<(const double d);
 	

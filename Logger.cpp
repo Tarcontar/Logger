@@ -97,9 +97,9 @@ Logger& Logger::operator<<(const long l)
 	return *this; 
 }
 
-Logger& Logger::operator<<(const long unsigned int l)
+Logger& Logger::operator<<(const unsigned long lu)
 {
-	print((long)l);
+	print(lu);
 	return *this; 
 }
 
