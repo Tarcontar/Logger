@@ -15,7 +15,7 @@ public:
 	static void SetRTC(DS3231 *rtc);
 	static void SetGSM();
 	
-	static void EnableDebug();
+	static void SetDebug(bool val);
 	
 	Logger& operator<<(const char c);
 	Logger& operator<<(const char* c);

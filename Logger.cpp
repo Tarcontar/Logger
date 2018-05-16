@@ -46,9 +46,9 @@ void Logger::SetGSM()
 {
 }
 
-void Logger::EnableDebug()
+void Logger::SetDebug(bool val)
 {
-	s_debug = true;
+	s_debug = val;
 }
 
 Logger& Logger::operator<<(const char c) 
