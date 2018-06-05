@@ -5,6 +5,14 @@
 #include "GPRS.hpp"
 #include "DS3231.h"
 
+static const uint8_t SMALL_STRING = 16;
+
+struct ERROR_NUMBER
+{
+	char name[SMALL_STRING];
+	char number[SMALL_STRING];
+};
+
 class Logger
 {
 public:
@@ -14,6 +22,10 @@ public:
 	static void SetLogFile(String file);
 	static void SetRTC(DS3231 *rtc);
 	static void SetGSM();
+	static void SetErrorNumbers(String* names, String* numbers, int count);
+	
+	static int GetErrorNumbersCount();
+	static ERROR_NUMBER* GetErrorNumber(int id);
 	
 	static void SetDebug(bool val);
 	

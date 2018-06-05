@@ -12,6 +12,9 @@ static bool s_rtcSet = false;
 
 static bool s_debug = false;
 
+static ERROR_NUMBER *s_errorNumbers;
+static uint8_t s_errorNumbersCount = 0;
+
 Logger debug(0);
 Logger console(1);
 Logger status(2);
@@ -44,6 +47,27 @@ void Logger::SetRTC(DS3231 *rtc)
 
 void Logger::SetGSM()
 {
+}
+
+void Logger::SetErrorNumbers(String* names, String* numbers, int count)
+{
+	s_errorNumbersCount = count;
+	s_errorNumbers = new ERROR_NUMBER[count];
+	for (int i = 0; i < count; i++)
+	{
+		names[i].toCharArray(s_errorNumbers[i].name, SMALL_STRING);
+		numbers[i].toCharArray(s_errorNumbers[i].number, SMALL_STRING);
+	}
+}
+
+int Logger::GetErrorNumbersCount()
+{
+	return s_errorNumbersCount;
+}
+
+ERROR_NUMBER* Logger::GetErrorNumber(int id)
+{
+	return &s_errorNumbers[id];
 }
 
 void Logger::SetDebug(bool val)
